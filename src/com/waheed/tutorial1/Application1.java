@@ -37,7 +37,7 @@ public class Application1 {
             LOG.debug("Result: {}", result);
         } catch (ArithmeticException exception) {
             // Passing the exception as the last argument retains its stack trace.
-            LOG.error("Cannot divide {} by {}", numerator, denominator, exception);
+            LOG.error("Cannot divide " + numerator + " by " + denominator, exception);
         }
     }
 }
