@@ -15,7 +15,7 @@
 			<!-- daily rollover
 			Once any of the below condition met, it will change the file name as below and compressed it. -->
 			
-			<fileNamePattern>logFile.%d{yyyy-MM-dd}.%i.log.zip
+			<fileNamePattern>logFile7.%d{yyyy-MM-dd}.%i.log.zip
 			</fileNamePattern>
 
 			<!-- keep 30 days' worth of history -->

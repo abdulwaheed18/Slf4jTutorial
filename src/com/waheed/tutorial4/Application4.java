@@ -1,41 +1,21 @@
-/**
- * 
- */
 package com.waheed.tutorial4;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Tutorial to read configuration file from the classpath Added logback.xml into
- * the classpath
- * 
- * @author abdul
- * 
+ * Reads logback.xml from the classpath. Change its root level to compare output.
  */
 public class Application4 {
 
-	private static final Logger LOG = LoggerFactory
-			.getLogger(Application4.class);
+    private static final Logger LOG = LoggerFactory.getLogger(Application4.class);
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		Application4 application = new Application4();
-
-		// goto ${Slf4jTutorial}/src/logback.xml file and change the root LOG
-		// level and check the o/p.
-		// Check logback.xml file for detailed explaination of logback
-		application.testLogLevel("Reading LOG level from logback.xml file");
-	}
-
-	private void testLogLevel(String message) {
-		LOG.trace(message);
-		LOG.debug(message);
-		LOG.info(message);
-		LOG.warn(message);
-		LOG.error(message);
-	}
-
+    public static void main(String[] args) {
+        String message = "Reading the level from logback.xml";
+        LOG.trace(message);
+        LOG.debug(message);
+        LOG.info(message);
+        LOG.warn(message);
+        LOG.error(message);
+    }
 }
