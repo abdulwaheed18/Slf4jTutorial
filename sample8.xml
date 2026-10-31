@@ -14,7 +14,7 @@
 			<!-- daily rollover Once any of the below condition met, it will change 
 				the file name as below and compressed it. -->
 
-			<fileNamePattern>logFile.%d{yyyy-MM-dd}.%i.log.zip
+			<fileNamePattern>logFile8.%d{yyyy-MM-dd}.%i.log.zip
 			</fileNamePattern>
 
 			<!-- keep 30 days' worth of history -->
@@ -36,16 +36,17 @@
 		<smtpHost>smtp.gmail.com</smtpHost>
 		<smtpPort>465</smtpPort>
 		<SSL>true</SSL>
+		<!-- Replace placeholders locally before opting in to email delivery.
+		     Never commit real credentials to the repository. -->
 		<username>USERNAME</username>
 		<password>YOUR_PASSWORD</password>
 		<to>RECEIVER_EMAIL_ID</to>
-		<from>RECEIVER_EMAIL_ID</from>
+		<from>SENDER_EMAIL_ID</from>
 		<subject>TESTING: %logger{20} - %m</subject>
 
 		<layout class="ch.qos.logback.classic.html.HTMLLayout" />
      <!-- by default, outgoing message size is 256 (messages logged by SMTPAppender).
      but you can your own buffer size.  -->
-     By default, the outgoing message will contain the last 256 messages seen by SMTPAppender. 
      	<cyclicBufferTracker class="ch.qos.logback.core.spi.CyclicBufferTrackerImpl">
 			<!-- send just one log entry per email -->
 			<bufferSize>1</bufferSize>
@@ -56,7 +57,9 @@
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 		<appender-ref ref="FILE" />
+		<!-- Uncomment only after setting valid mail credentials and recipients.
 		<appender-ref ref="EMAIL" />
+		-->
 
 	</root>
 </configuration>

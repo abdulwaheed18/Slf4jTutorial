@@ -1,0 +1,28 @@
+name: Java examples
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  compile-and-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '8'
+      - name: Compile sources
+        run: |
+          mkdir -p .build/classes
+          find src -name '*.java' -print0 | xargs -0 javac -cp 'lib/*' -d .build/classes
+      - name: Run logging examples
+        run: |
+          for example in 1 2 3; do
+            java -cp '.build/classes:lib/*' "com.waheed.tutorial${example}.Application${example}"
+          done
+          cp src/logback.xml .build/classes/
+          for example in 4 5 6 7 8; do
+            java -cp '.build/classes:lib/*' "com.waheed.tutorial${example}.Application${example}"
+          done
